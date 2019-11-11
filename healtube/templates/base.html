@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+{% load staticfiles %} 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="{% url 'home' %}">HEALTUBE</a>
@@ -50,20 +51,11 @@
         </div>
     </div>
 </nav>
+{% block content %}
 
 
-    <div id="fullpage">
-        <div class="section">Some section1</div>
-            <div class="section">
-                <div class="slide"> Slide 1 </div>
-                <div class="slide"> Slide 2 </div>
-                <div class="slide"> Slide 3 </div>
-                <div class="slide"> Slide 4 </div></div>
-            <div class="section">Some section2</div>
-            <div class="section">Some section3</div>
-            {% block content %}
-            {% endblock %}
-      </div>
+   
+{% endblock %}
 
 </body>
 
