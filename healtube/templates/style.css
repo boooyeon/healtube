@@ -1,0 +1,29 @@
+ body {
+    text-align: center;
+} 
+
+#fullpage .section:nth-child(1){
+    background-color: #fd79a8;
+}
+#fullpage .section:nth-child(2){
+    background-color:#0984e3;
+}
+#fullpage .section:nth-child(3){
+    background-color:#fab1a0;
+}
+#fullpage .section:nth-child(4){
+    background-color:#00b894;
+}
+#fullpage .slide:nth-child(1){
+    background-color: #b2bec3;
+}
+#fullpage .slide:nth-child(2){
+    background-color: #ffeaa7;
+}
+#fullpage .slide:nth-child(3){
+    background-color:#e17055;
+}
+#fullpage .slide:nth-child(4){
+    background-color:#d63031;
+}
+
