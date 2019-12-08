@@ -3,6 +3,7 @@ from django.contrib import admin
 
 from .models import Channel
 
+
 # Register your models here.
 
 class ChannelAdmin(admin.ModelAdmin):
@@ -10,4 +11,3 @@ class ChannelAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Channel, ChannelAdmin)
-
