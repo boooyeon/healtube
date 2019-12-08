@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container">
+<form action="{% url 'searchresult' %}" method='GET'>
+        {% csrf_token %}
+      
+<select name="sort-select1">
+    <option value="" selected disabled hidden>==운동 종류==</option>
+    <option class="sort-strech" value="스트레칭">스트레칭</option>
+    <option class="sort-hometraining" value="홈트레이닝">홈트레이닝</option>
+    <option class="sort-knowledge" value="운동지식">운동지식</option>
+    <option class="sort-health" value="헬스">헬스</option>
+</select>
+<select name="sort-select2" >
+    <option value="" selected disabled hidden>==운동 부위==</option>
+    <option class="sort-back" value="등">등</option>
+    <option class="sort-shoulder" value="어깨">어깨</option>
+    <option class="sort-body" value="전신">전신</option>
+    <option class="sort-thigh" value="허벅지">허벅지</option>
+    <option class="sort-lowerbody" value="하체">하체</option>
+    <option class="sort-hip" value="엉덩이">엉덩이</option>
+    <option class="sort-arm" value="팔">팔</option>
+    <option class="sort-waist" value="복근&허리">복근&허리</option>
+    <option class="sort-pelvis" value="골반">골반</option>
+    <option class="sort-upperbody" value="상체">상체</option>
+    <option class="sort-breast" value="가슴">가슴</option>
+</select> 
+<br>
+<input class="btn" type="submit" value="검색하기">
+</form>
+</div> 
+
+
+{% endblock %}

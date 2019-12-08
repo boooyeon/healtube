@@ -19,12 +19,12 @@ import main.views
 import accounts.views
 import mylist.views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main.views.home, name='home'),
     path('accounts/', include('accounts.urls')),
     path('mylist/', include('mylist.urls')),
- 
-
+    
 ] 
  
