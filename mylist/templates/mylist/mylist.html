@@ -1,45 +1,52 @@
 {% extends 'base.html' %}
-{% load staticfiles %} 
+
+
 {% block content %}
-<!-- 
-<p>내장바구니임</p> -->
-<form action="{% url 'mylist' %}" method="GET">
-    {% csrf_token %}
-   
-    <table border="2">
-        <tread>
-        <tr>
-            
-            <td>CHECK</td>
-            <td>채널이름</td>
-            <td>제목</td>
-            <td>링크</td>
-            <td>조회수</td>
-           
-        </tr>    
-        </tread>
-        <tbody>
+<br>
+<h1 style="text-align: center;">Select Exercise!</h1>
+<br>
+<br>
+<div class="container">    
+<body>  
+<form style="text-align: center;" action="{% url 'searchresult' %}" method='GET'>
+        {% csrf_token %} 
+<select name="sort-select1" style="width:180px;height:80px; font-size: 20px; margin-right:5px">
+        <option value="" selected disabled hidden >운동 종류</option>
+        <option class="sort-strech" value="스트레칭">스트레칭</option>
+        <option class="sort-hometraining" value="홈트레이닝">홈트레이닝</option>
+        <option class="sort-health" value="헬스">헬스</option>
+        <option class="sort-knowledge" value="운동지식">운동지식</option>
+</select>
+<select name="sort-select2" style="width:180px;height:80px; font-size: 20px; margin-left:5px">
+        <option style="text-align: center;" value="" selected disabled hidden >운동 부위</option>
+        <option class="sort-body" value="전신">전신</option>
+        <option class="sort-upperbody" value="상체">상체</option>
+        <option class="sort-back" value="등">등</option>
+        <option class="sort-breast" value="가슴">가슴</option>
+        <option class="sort-waist" value="복근&허리">복근&허리</option>
+        <option class="sort-shoulder" value="어깨">어깨</option>
+        <option class="sort-arm" value="팔">팔</option>
+        <option class="sort-pelvis" value="골반">골반</option>
+        <option class="sort-hip" value="엉덩이">엉덩이</option>
+        <option class="sort-thigh" value="허벅지">허벅지</option>
+        <option class="sort-lowerbody" value="하체">하체</option>
+</select> 
+<br>
+<br>
 
-        {% for obb in checklist %}
-               {% for c in obb %}
-                <td><input type="checkbox" name="chk_info" value="{{c.id}}"></td>
-                <td>{{c.channel_name}}</td>
-                <td>{{c.video_title}}</td>
-                <td style="width: 400px; height: 200px;">                                        
-                    <div style="position: relative; height:0; padding-bottom: 56.25%;">
-                    <iframe width="1000" height="800" src="{{c.video_link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; width:390px; height:220px;">{{ob2.video_link}}</iframe>
-                    </div>
-                </td>
-                <td>{{c.video_view_num}}</td>
-            
-                </tr>
-                {% endfor %}
-        {% endfor %}
+<style>
+        #ii { 
+            margin-right: 367px; 
+        }
+        </style>
+        
+        <div id="ii" class="text-right" >
+        <button style="border: 1px solid #74b9ff; background-color: rgba(0,0,0,0); color: #74b9ff; padding: 5px;">
+                 <input class="btn" type="submit" value="검색하기"></button></div>
+                 <br>
+        </form>
+        </body>   
+        </div> 
 
-        </tbody>
-    </table>
-  <br>
-  <br>
-</form> 
+
 {% endblock %}
-
