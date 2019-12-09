@@ -2,11 +2,14 @@
 
 
 {% block content %}
-
-<div class="container">
-<form action="{% url 'searchresult' %}" method='GET'>
-        {% csrf_token %}
-      
+<br>
+<h1 style="text-align: center;">Select Exercise!</h1>
+<br>
+<br>
+<div class="container">    
+<body>  
+<form style="text-align: center;" action="{% url 'searchresult' %}" method='GET'>
+        {% csrf_token %} 
 <select name="sort-select1">
     <option value="" selected disabled hidden>==운동 종류==</option>
     <option class="sort-strech" value="스트레칭">스트레칭</option>
@@ -29,8 +32,15 @@
     <option class="sort-breast" value="가슴">가슴</option>
 </select> 
 <br>
-<input class="btn" type="submit" value="검색하기">
+<br>
+
+<button style="border: 1px solid #74b9ff; background-color: rgba(0,0,0,0); 
+color: #74b9ff;
+padding: 5px;">
+     <div id="bb">
+         <input class="btn" type="submit" value="검색하기"></button></div>
 </form>
+</body>   
 </div> 
 
 
