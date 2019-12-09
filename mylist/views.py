@@ -102,7 +102,8 @@ def SaveForm(request):
 #         form = SearchForm()
 #         return render(request, 'searchresult.html',{'form':form})
 # Create your views here.
-      
+def SaveCart(request):
+    pass
 
 
        
