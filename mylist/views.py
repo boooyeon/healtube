@@ -52,13 +52,20 @@ def SearchFormView(request):
 
 
 def SaveForm(request):
-    # post로 체크 벨류 벨류는 네임으로 확인
-    # 그 벨류는 채널 아이디
     rq = request
+    choices = request.GET.getlist('chk_info') # list
 
-    choices = request.POST.getlist('chk_info') # list
     print(choices)
-    
+    checklist = []
+    for i in choices:
+        obs2 = Channel.objects.filter(id=i)
+        checklist.append(obs2)
+ 
+    context2 = {'checklist':checklist}
+
+    print(checklist) 
+    print(context2)
+    return render(request, 'mylist/mylist.html' , context2)
     # for i in choices:
     #     print(i)
        
@@ -82,7 +89,7 @@ def SaveForm(request):
     #         user.cart.add(Channel)
     # # cart 객체들만 갖고와서 
     # # 아래 페이지에 전달
-    return render(request, 'mylist/mylist.html',  )
+
 # def post(request):
 #     if request.method == 'POST':
 #         form = SearchForm(request.POST)

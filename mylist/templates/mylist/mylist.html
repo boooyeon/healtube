@@ -1,7 +1,45 @@
 {% extends 'base.html' %}
-
+{% load staticfiles %} 
 {% block content %}
+<!-- 
+<p>내장바구니임</p> -->
+<form action="{% url 'mylist' %}" method="GET">
+    {% csrf_token %}
+   
+    <table border="2">
+        <tread>
+        <tr>
+            
+            <td>CHECK</td>
+            <td>채널이름</td>
+            <td>제목</td>
+            <td>링크</td>
+            <td>조회수</td>
+           
+        </tr>    
+        </tread>
+        <tbody>
 
-{{basket}}
+        {% for obb in checklist %}
+               {% for c in obb %}
+                <td><input type="checkbox" name="chk_info" value="{{c.id}}"></td>
+                <td>{{c.channel_name}}</td>
+                <td>{{c.video_title}}</td>
+                <td style="width: 400px; height: 200px;">                                        
+                    <div style="position: relative; height:0; padding-bottom: 56.25%;">
+                    <iframe width="1000" height="800" src="{{c.video_link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; width:390px; height:220px;">{{ob2.video_link}}</iframe>
+                    </div>
+                </td>
+                <td>{{c.video_view_num}}</td>
+            
+                </tr>
+                {% endfor %}
+        {% endfor %}
 
+        </tbody>
+    </table>
+  <br>
+  <br>
+</form> 
 {% endblock %}
+
