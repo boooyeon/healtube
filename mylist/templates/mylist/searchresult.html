@@ -2,52 +2,46 @@
 {% load staticfiles %} 
 
 {% block content %}
-<br>
-<h1 style="text-align: center;">Check you want!</h1>
-<br>
-<form  action="{% url 'mylist' %}" method="GET">
+
+<form action="{% url 'mylist' %}" method="GET">
     {% csrf_token %}
-            <table style="margin:auto" border="2">
+
+    
+        <table border="2">
             <tread>
             <tr>
-                <td style="text-align: center;">Check</td>
-                <td style="text-align: center;">Channel</td>
-                <td style="text-align: center;">Title</td>
-                <td style="text-align: center;">Video</td>
-                <td style="text-align: center;">Views</td>
+                <td>CHECK</td>
+                <td>채널이름</td>
+              
+                <td>제목</td>
+                <td>링크</td>
+                <td>조회수</td>
+               
             </tr>    
             </tread>
             <tbody>
                 {% for ob in obs %}
-                <td style="text-align: center"><input style="zoom:3.0;" type="checkbox" name="chk_info" value="{{ob.id}}"></td>
-                <td style="text-align: center; width: 200px;">{{ob.channel_name}}</td>
-                <td style="text-align: center; width: 350px;">{{ob.video_title}}</td>
+                <td><input type="checkbox" name="chk_info" value="{{ob.id}}"></td>
+                <td>{{ob.channel_name}}</td>
+            
+                <td>{{ob.video_title}}</td>
                 <td style="width: 400px; height: 200px;">                                        
                     <div style="position: relative; height:0; padding-bottom: 56.25%;">
                     <iframe width="1000" height="800" src="{{ob.video_link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; width:390px; height:220px;">{{ob.video_link}}</iframe>
                     </div>
                 </td>
-                <td style="text-align: center; width: 140px;">{{ob.video_view_num}}</td>
+                <td>{{ob.video_view_num}}</td>
+              
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
       <br>
-      <style>
-            div { 
-                margin-right: 106px; 
-            }
-            </style>
-      <div class="text-right">
-            <button style="border: 1px solid #74b9ff; background-color: rgba(0,0,0,0); color: #74b9ff; padding: 5px;">
-          <input class="btn" type="submit" value="장바구니에 추가"></button>
-      </div>
       <br>
+    <input class="btn" type="submit" value="내 장바구니에 저장">
 </form>
-<br>
 
 {% endblock %}
-
 
 
   
