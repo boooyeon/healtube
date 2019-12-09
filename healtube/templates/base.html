@@ -33,6 +33,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                          
+                        <a class="dropdown-item" href="{% url 'search' %}">운동 검색하기</a>
                         <a class="dropdown-item" href="{% url 'mylist' %}">내 운동장바구니</a>
                         <a class="dropdown-item" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
                         <form id="logout" method="POST" action="{% url 'logout' %}">
