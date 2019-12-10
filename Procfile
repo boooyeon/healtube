@@ -1,1 +1,1 @@
-web: gunicorn healtube.wsgi --log-file -
+web: gunicorn healtubeproject.wsgi --log-file -
